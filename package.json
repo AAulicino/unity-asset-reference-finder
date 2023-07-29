@@ -1,0 +1,20 @@
+{
+  "name": "com.aaulicino.unity-asset-reference-finder",
+  "displayName": "Unity Asset Reference Finder",
+  "version": "0.1.0",
+  "unity": "2020.3",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/AAulicino/unity-asset-reference-finder",
+  "documentationUrl": "https://github.com/AAulicino/unity-asset-reference-finder/blob/main/README.md",
+  "changelogUrl": "https://github.com/AAulicino/unity-asset-reference-finder/blob/main/CHANGELOG.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AAulicino/unity-asset-reference-finder"
+  },
+  "author": {
+    "name": "Arthur Aulicino",
+    "url": "https://github.com/AAulicino"
+  },
+  "license": "MIT"
+}
