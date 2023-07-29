@@ -88,7 +88,7 @@ namespace UnityAssetReferenceFinder.Editor
         }
 
         Dictionary<string, List<string>> FindInFiles(
-            string path, 
+            string path,
             ParallelLoopState loopState, 
             Dictionary<string, List<string>> results
         )

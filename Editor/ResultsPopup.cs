@@ -9,16 +9,16 @@ namespace UnityAssetReferenceFinder.Editor
     public class ResultsPopup : EditorWindow
     {
         IReadOnlyDictionary<Object, Object[]> results;
-        Dictionary<Object, ResultSettings> _resultSettings;
+        Dictionary<Object, ResultSettings> resultSettings;
 
         public void Setup(IReadOnlyDictionary<Object, Object[]> results)
         {
             this.results = results;
-            _resultSettings = results.Keys.ToDictionary(x => x, _ => new ResultSettings());
-            if (_resultSettings.Count == 1)
-                _resultSettings.Single().Value.Foldout = true;
+            resultSettings = results.Keys.ToDictionary(x => x, _ => new ResultSettings());
+            if (resultSettings.Count == 1)
+                resultSettings.Single().Value.Foldout = true;
         }
-        
+
         void Awake()
         {
             titleContent.text = "Results";
@@ -28,7 +28,7 @@ namespace UnityAssetReferenceFinder.Editor
         {
             if (results == null)
                 return;
-            
+
             foreach (KeyValuePair<Object, Object[]> result in results)
             {
                 Object targetObj = result.Key;
@@ -38,18 +38,17 @@ namespace UnityAssetReferenceFinder.Editor
                 EditorGUILayout.ObjectField("Objects referencing: ", targetObj, targetObj.GetType(), false);
                 GUI.enabled = true;
 
-                var settings = _resultSettings[targetObj];
-                
+                ResultSettings settings = resultSettings[targetObj];
                 settings.Foldout  = EditorGUILayout.Foldout(settings.Foldout, targetObj.name);
-                
+
                 if (!settings.Foldout)
                     continue;
-                
+
                 EditorGUILayout.Separator();
 
                 if (targetObjReferences == null)
                     return;
- 
+
                 settings.ScrollPosition = EditorGUILayout.BeginScrollView(settings.ScrollPosition);
                 GUI.enabled = false;
 
